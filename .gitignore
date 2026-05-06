@@ -1,49 +1,36 @@
-# History files
+# Data — too large for git, regenerable from source
+data/raw/
+data/processed/
+*.tfrecord
+*.parquet
+
+# R session
 .Rhistory
 .Rapp.history
-
-# Session Data files
 .RData
 .RDataTmp
-
-# User-specific files
 .Ruserdata
 
-# Example code in package build process
-*-Ex.R
-
-# Output files from R CMD build
-/*.tar.gz
-
-# Output files from R CMD check
-/*.Rcheck/
-
-# RStudio files
+# RStudio
 .Rproj.user/
 
-# produced vignettes
-vignettes/*.html
-vignettes/*.pdf
+# renv (keeps lockfile, ignores the actual library)
+renv/library/
+renv/local/
+renv/cellar/
+renv/staging/
+renv/python/
 
-# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
-.httr-oauth
+# Python (for the conversion script later)
+__pycache__/
+*.pyc
+.venv/
+venv/
 
-# knitr and R markdown default cache directories
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Quarto / Rmd render artifacts
+*_files/
 *_cache/
-/cache/
-
-# Temporary files created by R markdown
-*.utf8.md
-*.knit.md
-
-# R Environment Variables
-.Renviron
-
-# pkgdown site
-docs/
-
-# translation temp files
-po/*~
-
-# RStudio Connect folder
-rsconnect/
