@@ -69,3 +69,21 @@ in this shard.
 - ~3,000 priority interactive cyclists
 - ~24M traffic signal observations
 
+## Session 5 — Formal Interaction Events
+
+### Definition
+An *interaction event* is a (scene, cyclist) pair where:
+- minimum AV–cyclist distance ≤ 15 m
+- both AV and cyclist moved ≥ 5 m during the 20 s window
+
+### Count
+58 events across 3 shards. Extrapolates to ~2,900 across the
+full 150-shard validation_interactive split.
+
+### TTP vs distance
+TTP-flagged cyclists overwhelmingly concentrate in the [0,15) m
+bins, but ~10 of 60 TTP cyclists are at 20–35 m and never
+physically approached the AV. TTP captures Waymo's prediction
+importance, not physical proximity. We use **distance + movement**
+as the primary filter; TTP is retained as a column for sensitivity
+analysis but is not the definition.
