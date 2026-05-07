@@ -43,3 +43,29 @@ in this shard.
 - `outputs/figures/02_min_distance_distribution.png` — proximity histogram
 - `outputs/figures/03_six_closest_approaches.png` — top-6 panel
 - `data/processed/cyclist_summary.parquet` — per-(scene, cyclist) summary
+
+## Session 4 — v2 Converter & Scale-Up
+
+### Coverage
+3 shards (validation_interactive, indices 0–2): 850 scenes, 58,076 agents,
+5.3M agent states, 478,482 traffic signal observations.
+
+### Key new fields
+- `is_track_to_predict` (priority interactive flag): cyclists ✓
+  60 TTP cyclists across 3 shards (15/21/24 per shard).
+- `traffic_signals` table populated and meaningful:
+  78% of signal states known (`stop` 38%, `go` 22%, arrow variants 16%).
+  588 of 850 scenes have signal data.
+
+### Methodological updates
+- Use `is_track_to_predict` as the primary interaction-candidate filter.
+  `is_object_of_interest` is a side label — much smaller cohort and
+  partially disjoint from TTP.
+- Signalised vs unsignalised stratification is feasible across ~70%
+  of scenes.
+
+### Extrapolation to full validation_interactive split (150 shards)
+- ~42,500 scenes
+- ~3,000 priority interactive cyclists
+- ~24M traffic signal observations
+
